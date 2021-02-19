@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Timers;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Disk_To_Disk
 {
@@ -293,21 +294,28 @@ namespace Disk_To_Disk
 
         private void backupEnd()//백업이 완료했을때 호출되는 함수
         {
-            backupfile = new List<string>();
-            if (is_poweroff.IsChecked.Value)
+            try
             {
-                ProcessStartInfo cmd = new ProcessStartInfo();
-                Process process = new Process();
-                cmd.FileName = @"cmd";
-                cmd.WindowStyle = ProcessWindowStyle.Hidden;
-                cmd.CreateNoWindow = true;
-                cmd.UseShellExecute = false;
-                process.EnableRaisingEvents = false;
-                process.StartInfo = cmd;
-                process.Start();
-                process.StandardInput.Write(@"shutdown /s /t 00" + Environment.NewLine);//컴퓨터 끄기
-                process.StandardInput.Close();
+                Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                {
+                    backupfile = new List<string>();
+                    if (is_poweroff.IsChecked.Value)
+                    {
+                        ProcessStartInfo cmd = new ProcessStartInfo();
+                        Process process = new Process();
+                        cmd.FileName = @"cmd";
+                        cmd.WindowStyle = ProcessWindowStyle.Hidden;
+                        cmd.CreateNoWindow = true;
+                        cmd.UseShellExecute = false;
+                        process.EnableRaisingEvents = false;
+                        process.StartInfo = cmd;
+                        process.Start();
+                        process.StandardInput.Write(@"shutdown /s /t 00" + Environment.NewLine);//컴퓨터 끄기
+                        process.StandardInput.Close();
+                    }
+                }));
             }
+            catch { }
         }
 
         private void check_time(object sender, ElapsedEventArgs e)
