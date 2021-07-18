@@ -1,0 +1,27 @@
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Microsoft.WindowsAPICodePack.dll
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Microsoft.WindowsAPICodePack.xml
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Disk To Disk.exe.config
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Disk To Disk.exe
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Disk To Disk.pdb
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Newtonsoft.Json.dll
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\System.Drawing.Common.dll
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\Newtonsoft.Json.xml
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Release\System.Diagnostics.Process.dll
+C:\Users\bass9\source\repos\Disk To Disk with cs\bin\exe\Disk To Disk.exe.config
+C:\Users\bass9\source\repos\Disk To Disk with cs\bin\exe\Disk To Disk.exe
+C:\Users\bass9\source\repos\Disk To Disk with cs\bin\exe\Disk To Disk.pdb
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk with cs.csprojAssemblyReference.cache
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\MainWindow.g.cs
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\App.g.cs
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk_MarkupCompile.cache
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk_MarkupCompile.lref
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\MainWindow.baml
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk.g.resources
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk_To_Disk.Properties.Resources.resources
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk with cs.csproj.GenerateResource.cache
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk with cs.csproj.CoreCompileInputs.cache
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk with cs.csproj.CopyComplete
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk.exe
+C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Release\Disk To Disk.pdb
