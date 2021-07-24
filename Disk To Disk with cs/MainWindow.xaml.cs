@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Timers;
 using System.Windows;
+using Newtonsoft.Json.Linq;
 
 namespace Disk_To_Disk
 {
@@ -17,13 +18,31 @@ namespace Disk_To_Disk
     public partial class MainWindow : Window
     {
         string backuptime;
+        FileSystemWatcher watcher;
         string target;
         string folder;
-        string docpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         List<string> backupfile = new List<string>();
         Timer Timer;
+        JObject config;
+        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "DTD.conf");
         public MainWindow()
         {
+            using (RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Disk To Disk"))
+            {
+                if (reg != null)
+                {
+                    JObject conf = new JObject();
+                    conf["target"] = (string)reg.GetValue("target");
+                    conf["folder"] = (string)reg.GetValue("folder");
+                    conf["is_setting_save"] = Convert.ToBoolean(reg.GetValue("is_setting_save"));
+                    conf["is_startup"] = Convert.ToBoolean(reg.GetValue("is_startup"));
+                    conf["is_fast_startup"] = Convert.ToBoolean(reg.GetValue("is_faststartup"));
+                    conf["is_poweroff"] = Convert.ToBoolean(reg.GetValue("is_poweroff"));
+                    conf["hour"] = Convert.ToInt32(reg.GetValue("hour"));
+                    conf["minute"] = Convert.ToInt32(reg.GetValue("minute"));
+                    File.WriteAllText(configPath, conf.ToString());
+                }
+            }
             InitializeComponent();
             Loaded += Window_Loaded;//WPF가 로드되면 실행
         }
@@ -70,9 +89,10 @@ namespace Disk_To_Disk
                 {
                     foreach (string s in backupfile)
                     {
-                        CopyTree(s, folder + s.Replace(target, ""));
+                        CopyTree(s, Path.Combine(folder, s.Replace(target, "")));
                         Console.WriteLine(s);
                     }
+                    backupfile.Clear();
                 };
                 menu.MenuItems.Add(show);//아이템 추가
                 show.Index = 2;
@@ -84,6 +104,7 @@ namespace Disk_To_Disk
                         if (Timer.Enabled)
                         {
                             Timer.Enabled = false;
+                            watcher.Dispose();
                             //Console.WriteLine("stop call");
                         }
                         else
@@ -111,16 +132,10 @@ namespace Disk_To_Disk
             //저장된 설정 파일 불러오기
             try
             {
-                RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Disk To Disk");
-                if (reg == null)
+                string conf = File.ReadAllText(configPath);
+                if(conf != null)
                 {
-                    RegistryKey reg1 = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Disk To Disk");
-                    reg1.SetValue("is_frist", true);
-                    reg1.Close();
-                    throw new Exception("setting value is not set");
-                }
-                if (Convert.ToBoolean(reg.GetValue("is_setting_save", false)))
-                {
+                    JObject reg = JObject.Parse(conf);
                     backup_target_path.Text = (string)reg.GetValue("target");
                     backup_folder_path.Text = (string)reg.GetValue("folder");
                     is_setting_save.IsChecked = Convert.ToBoolean(reg.GetValue("is_setting_save"));
@@ -130,7 +145,6 @@ namespace Disk_To_Disk
                     H.SelectedIndex = Convert.ToInt32(reg.GetValue("hour"));
                     M.SelectedIndex = Convert.ToInt32(reg.GetValue("minute"));
                 }
-                reg.Close();
             }
             catch(Exception ex)
             {
@@ -147,7 +161,6 @@ namespace Disk_To_Disk
         private void backup_target_sel_Click(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = @"C:\";
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)//폴더선택을 했으면
             {
@@ -158,7 +171,6 @@ namespace Disk_To_Disk
         private void backup_folder_sel_Click(object sender, RoutedEventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = @"C:\";
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
@@ -230,14 +242,14 @@ namespace Disk_To_Disk
             }
 
             //백업 동작 시작
-            //TODO : 폴더가 같이 감지되는 경우 수정
-            FileSystemWatcher watcher = new FileSystemWatcher()
+            //TODO : 네트워크 드라이브에서 감지되지 않는 점 수정
+            watcher = new FileSystemWatcher()
             {
                 Path = backup_target_path.Text,
                 NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.Size,
                 Filter = "*.*",
                 IncludeSubdirectories = true,
-                EnableRaisingEvents = true
+                EnableRaisingEvents = true,
             };
             watcher.Changed += onChanged;
             watcher.Created += onChanged;
@@ -305,7 +317,7 @@ namespace Disk_To_Disk
 
         private void backupEnd()//백업이 완료했을때 호출되는 함수
         {
-            backupfile = new List<string>();
+            backupfile.Clear();
             if (is_poweroff.IsChecked.Value)
             {
                 ProcessStartInfo cmd = new ProcessStartInfo();
@@ -351,7 +363,7 @@ namespace Disk_To_Disk
                 {
                     foreach (string s in backupfile)
                     {
-                        CopyTree(s, folder + s.Replace(target, ""));
+                        CopyTree(s, Path.Combine(folder, s.Replace(target, "")));
                         Console.WriteLine(s);
                     }
                 }

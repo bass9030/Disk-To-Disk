@@ -24,14 +24,9 @@ C:\Users\bass9\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Disk To Disk.exe.config
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Disk To Disk.exe
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Disk To Disk.pdb
-C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Microsoft.WindowsAPICodePack.dll
-C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
-C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Newtonsoft.Json.dll
-C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\System.Drawing.Common.dll
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\bin\Debug\Newtonsoft.Json.xml
-C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk with cs.csprojAssemblyReference.cache
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\MainWindow.g.cs
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\App.g.cs
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk_MarkupCompile.cache
@@ -44,3 +39,5 @@ C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Deb
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk with cs.csproj.CopyComplete
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk.exe
 C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk.pdb
+C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk with cs.csproj.AssemblyReference.cache
+C:\Users\bass9030\source\repos\Disk To Disk with cs\Disk To Disk with cs\obj\Debug\Disk To Disk with cs.csproj.Fody.CopyLocal.cache
